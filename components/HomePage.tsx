@@ -5,11 +5,12 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 const { width, height } = Dimensions.get('window');
 import Button from './ButtonComponent';
 import SearchComponent from './SearchComponent';
+import CustomSafeAreaView from './CustomSafeAreaView';
 
 export default function HomePage() {
 	return (
 		<KeyboardAwareScrollView enableOnAndroid={true}>
-			<SafeAreaView style={styles.mainContainer}>
+			<CustomSafeAreaView style={styles.mainContainer}>
 				<View style={styles.contentContainer}>
 					<SearchComponent />
 					<Text style={styles.container}>Welcome to React Native</Text>
@@ -20,7 +21,7 @@ export default function HomePage() {
 					</View>
 					<Text style={styles.footer}>Developed By Shams</Text>
 				</View>
-			</SafeAreaView>
+			</CustomSafeAreaView>
 		</KeyboardAwareScrollView>
 	);
 }
