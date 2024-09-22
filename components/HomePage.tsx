@@ -1,24 +1,27 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 const { width, height } = Dimensions.get('window');
 import Button from './ButtonComponent';
 import SearchComponent from './SearchComponent';
 
 export default function HomePage() {
 	return (
-		<SafeAreaView style={styles.mainContainer}>
-			<View style={styles.contentContainer}>
-				<SearchComponent />
-				<Text style={styles.container}>Welcome to React Native</Text>
-				<Image source={require('../assets/images/virtusaIcon.jpeg')} style={styles.logo} resizeMode='contain' />
-				<View style={styles.buttonAlign}>
-					<Button onPress={() => console.log('save is pressed')} />
-					<Button onPress={() => console.log('exit is pressed')} title='Exit' color='red' />
+		<KeyboardAwareScrollView enableOnAndroid={true}>
+			<SafeAreaView style={styles.mainContainer}>
+				<View style={styles.contentContainer}>
+					<SearchComponent />
+					<Text style={styles.container}>Welcome to React Native</Text>
+					<Image source={require('../assets/images/virtusaIcon.jpeg')} style={styles.logo} resizeMode='contain' />
+					<View style={styles.buttonAlign}>
+						<Button onPress={() => console.log('save is pressed')} />
+						<Button onPress={() => console.log('exit is pressed')} title='Exit' color='red' />
+					</View>
+					<Text style={styles.footer}>Developed By Shams</Text>
 				</View>
-				<Text style={styles.footer}>Developed By Shams</Text>
-			</View>
-		</SafeAreaView>
+			</SafeAreaView>
+		</KeyboardAwareScrollView>
 	);
 }
 
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
 	footer: {
 		fontWeight: 'bold',
 		textAlign: 'center',
-		marginTop: 'auto',
+		marginTop: height * 0.21,
 		backgroundColor: '#CEEAD6',
 		paddingVertical: 20,
 		borderRadius: 10,
